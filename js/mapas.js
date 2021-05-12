@@ -20,7 +20,7 @@ var capas_base = {
 
 L.control.layers(capas_base).addTo(mapa);
 
-capas_base.capa_osm.addTo(map);	
+capas_base.capa_osm.addTo(mapa);	
 
 // Control de escala
 L.control.scale().addTo(mapa);
