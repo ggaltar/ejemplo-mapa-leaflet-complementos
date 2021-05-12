@@ -20,7 +20,7 @@ var capas_base = {
 // Se agregan todas las capas base al mapa
 control_capas = L.control.layers(capas_base).addTo(mapa);
 
-// Se selecciona una capa del control
+// Se activa una capa base del control
 capas_base['OSM'].addTo(mapa);	
 
 // Control de escala
