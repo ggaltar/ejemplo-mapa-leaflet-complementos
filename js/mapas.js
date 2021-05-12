@@ -39,20 +39,4 @@ $.getJSON("https://tpb729-desarrollosigweb-2021.github.io/datos/sinac/areas_prot
   }).addTo(mapa);
 
   control_capas.addOverlay(capa_asp, 'Áreas protegidas');
-});	
-
-
-// Capa vectorial de distritos en formato GeoJSON
-$.getJSON("https://tpb729-desarrollosigweb-2021.github.io/datos/ign/distritos-wgs84.geojson", function(geodata) {
-  var capa_distritos = L.geoJson(geodata, {
-    style: function(feature) {
-	  return {'color': "#ff0000", 'weight': 3, 'fillOpacity': 0.0}
-    },
-    onEachFeature: function(feature, layer) {
-      var popupText = "<strong>Distrito</strong>: " + feature.properties.distrito + "<br>" + "<strong>Cantón</strong>: " + feature.properties.canton + "<br>" + "<strong>Provincia</strong>: " + feature.properties.provincia;
-      layer.bindPopup(popupText);
-    }			
-  }).addTo(mapa);
-
-  control_capas.addOverlay(capa_distritos, 'Distritos');
-});	
+});		
