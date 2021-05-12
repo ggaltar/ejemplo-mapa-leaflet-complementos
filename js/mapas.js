@@ -1,27 +1,26 @@
 // Mapa Leaflet
 var mapa = L.map('mapid').setView([9.8, -84.25], 7);
 
-// Capa base agregada mediante L.tileLayer
-var capa_osm = L.tileLayer(
-  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?', 
-  {
-    maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }
-).addTo(mapa);	
-
-
-// Capa base agregada mediante L.tileLayer y leaflet-providers
-var capa_watercolor = L.tileLayer.provider('Stamen.Watercolor').addTo(mapa);
-
-// Conjunto de capas base
+// Capas base
 var capas_base = {
-  "OSM": capa_osm,
-  "Stamen.Watercolor": capa_watercolor
-};	    
-	    
-// Control de capas
-control_capas = L.control.layers(capas_base).addTo(mapa);	
+	
+  // Capa base agregada mediante L.tileLayer
+  capa_osm: L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?', 
+    {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }
+  ),
+
+  // Capa base agregada mediante L.tileLayer y leaflet-providers
+  'Stamen.Watercolor2': L.tileLayer.provider('Stamen.Watercolor')	
+}
+
+
+L.control.layers(capas_base).addTo(mapa);
+
+//basemaps.Topography.addTo(map);	
 
 // Control de escala
 L.control.scale().addTo(mapa);
