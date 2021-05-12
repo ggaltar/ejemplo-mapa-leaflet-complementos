@@ -1,11 +1,11 @@
 // Mapa Leaflet
 var mapa = L.map('mapid').setView([9.8, -84.25], 7);
 
-// Capas base
+// Definición de capas base
 var capas_base = {
 	
   // Capa base agregada mediante L.tileLayer
-  capa_osm: L.tileLayer(
+  "OSM": L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?', 
     {
       maxZoom: 19,
@@ -14,13 +14,14 @@ var capas_base = {
   ),
 
   // Capa base agregada mediante L.tileLayer y leaflet-providers
-  'Stamen.Watercolor5': L.tileLayer.provider('Stamen.Watercolor')	
+  "Stamen.Watercolor": L.tileLayer.provider('Stamen.Watercolor')	
 }
 
-
+// Se agregan todas las capas base al mapa
 L.control.layers(capas_base).addTo(mapa);
 
-capas_base['Stamen.Watercolor5'].addTo(mapa);	
+// Se selecciona una capa del control
+capas_base['Stamen.Watercolor'].addTo(mapa);	
 
 // Control de escala
 L.control.scale().addTo(mapa);
