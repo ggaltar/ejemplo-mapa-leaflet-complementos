@@ -40,10 +40,3 @@ $.getJSON("https://tpb729-desarrollosigweb-2021.github.io/datos/sinac/areas_prot
 
   control_capas.addOverlay(capa_asp, 'Áreas protegidas');
 });		
-
-// Capa WMS
-var capa_distritos = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_5/wms?', {
-  layers: 'Límite Distrital 1:5mil',
-  transparent: true
-}).addTo(mapa);
-control_capas.addOverlay(capa_distritos, 'Distritos');
