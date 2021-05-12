@@ -18,7 +18,7 @@ var capas_base = {
 }
 
 // Se agregan todas las capas base al mapa
-L.control.layers(capas_base).addTo(mapa);
+control_capas = L.control.layers(capas_base).addTo(mapa);
 
 // Se selecciona una capa del control
 capas_base['OSM'].addTo(mapa);	
