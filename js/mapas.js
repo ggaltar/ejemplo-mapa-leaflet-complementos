@@ -21,7 +21,7 @@ var capas_base = {
 L.control.layers(capas_base).addTo(mapa);
 
 // Se selecciona una capa del control
-capas_base['Stamen.Watercolor'].addTo(mapa);	
+capas_base['OSM'].addTo(mapa);	
 
 // Control de escala
 L.control.scale().addTo(mapa);
