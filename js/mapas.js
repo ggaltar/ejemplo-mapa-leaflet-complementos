@@ -14,13 +14,13 @@ var capas_base = {
   ),
 
   // Capa base agregada mediante L.tileLayer y leaflet-providers
-  'Stamen.Watercolor3': L.tileLayer.provider('Stamen.Watercolor')	
+  'Stamen.Watercolor4': L.tileLayer.provider('Stamen.Watercolor')	
 }
 
 
 L.control.layers(capas_base).addTo(mapa);
 
-capas_base.capa_osm.addTo(mapa);	
+capas_base.'Stamen.Watercolor4'.addTo(mapa);	
 
 // Control de escala
 L.control.scale().addTo(mapa);
