@@ -13,8 +13,10 @@ var capas_base = {
     }
   ),
 
-  // Capa base agregada mediante L.tileLayer y leaflet-providers
-  "Stamen.Watercolor": L.tileLayer.provider('Stamen.Watercolor')	
+  // Capas base agregadas mediante L.tileLayer y leaflet-providers
+  "Stamen.Watercolor": L.tileLayer.provider('Stamen.Watercolor'),
+  "Esri.WorldShadedRelief": L.tileLayer.provider('Esri.WorldShadedRelief'),
+  "Esri.WorldStreetMap": L.tileLayer.provider('Esri.WorldStreetMap')
 }
 
 // Se agregan todas las capas base al mapa
@@ -40,3 +42,27 @@ $.getJSON("https://tpb729-desarrollosigweb-2021.github.io/datos/sinac/areas_prot
 
   control_capas.addOverlay(capa_asp, 'Áreas protegidas');
 });		
+
+// Agregar capas WMS
+var capa_distritos = L.tileLayer.wms('https://geos.snitcr.go.cr/be/IGN_5/wms?', {
+	  layers: 'limitedistrital_5k',
+	  format: 'image/png',
+	  transparent: true
+}).addTo(mapa);
+
+var capa_deslizamientos = L.tileLayer.wms('http://mapas.cne.go.cr/servicios/cne/wms', {
+	  layers: 'deslizamientos',
+	  format: 'image/png',
+	  transparent: true
+}).addTo(mapa);
+
+var mundialis = L.tileLayer.wms('http://ows.mundialis.de/services/service?', {
+	  layers: 'SRTM30-Colored',
+	  format: 'image/png',
+	  transparent: true
+}).addTo(mapa);
+
+// Se agregan al control de capas como de tipo "overlay"
+control_capas.addOverlay(capa_distritos, 'Distritos');
+control_capas.addOverlay(capa_deslizamientos, 'Deslizamientos');
+control_capas.addOverlay(mundialis, 'Mundialis');
